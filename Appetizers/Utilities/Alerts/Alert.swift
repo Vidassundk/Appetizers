@@ -55,5 +55,19 @@ struct AlertContext {
                 "Please ensure your email address is valid."
             ),
         dismissButton: .default(Text("OK")))
+    static let userSaveSuccess = AlertItem(
+        title: Text("Profile Saved"),
+        message:
+            Text(
+                "Your profile information was successfully saved."
+            ),
+        dismissButton: .default(Text("OK")))
+    static let userSaveError = AlertItem(
+        title: Text("Profile save unsuccessful"),
+        message:
+            Text(
+                "Something went wrong. Your profile information was not saved. Please contact support."
+            ),
+        dismissButton: .default(Text("OK")))
 
 }

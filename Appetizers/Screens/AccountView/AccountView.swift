@@ -15,14 +15,15 @@ struct AccountView: View {
         NavigationView {
             Form {
                 Section(header: Text("Personal Info")) {
-                    TextField("Name", text: $viewModel.firstName)
-                    TextField("Last Name", text: $viewModel.lastName)
-                    TextField("Email", text: $viewModel.email).keyboardType(
-                        .emailAddress
-                    )
-                    .autocapitalization(.none).disableAutocorrection(true)
+                    TextField("Name", text: $viewModel.user.firstName)
+                    TextField("Last Name", text: $viewModel.user.lastName)
+                    TextField("Email", text: $viewModel.user.email)
+                        .keyboardType(
+                            .emailAddress
+                        )
+                        .autocapitalization(.none).disableAutocorrection(true)
                     DatePicker(
-                        "Birthday", selection: $viewModel.birthDate,
+                        "Birthday", selection: $viewModel.user.birthDate,
                         displayedComponents: .date)
                     Button {
                         viewModel.saveChanges()
@@ -31,17 +32,22 @@ struct AccountView: View {
                     }
                 }
                 Section(header: Text("Request")) {
-                    Toggle("Extra Napkins", isOn: $viewModel.extraNapkins)
+                    Toggle("Extra Napkins", isOn: $viewModel.user.extraNapkins)
                         .toggleStyle(
                             SwitchToggleStyle(tint: .primary))
-                    Toggle("Frequent Refills", isOn: $viewModel.frequentRefils)
-                        .toggleStyle(
-                            SwitchToggleStyle(tint: .primary))
+                    Toggle(
+                        "Frequent Refills", isOn: $viewModel.user.frequentRefils
+                    )
+                    .toggleStyle(
+                        SwitchToggleStyle(tint: .primary))
                 }.toggleStyle(
                     SwitchToggleStyle(tint: .primary))
             }
             .navigationTitle("🧑 Account")
-        }.alert(item: $viewModel.alertItem) {
+        }.onAppear {
+            viewModel.retrieveUser()
+        }
+        .alert(item: $viewModel.alertItem) {
             alertItem in
             Alert(
                 title: alertItem.title, message: alertItem.message,
