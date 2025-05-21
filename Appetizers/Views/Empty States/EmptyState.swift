@@ -21,7 +21,7 @@ struct EmptyState: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 120)
                     .symbolRenderingMode(.palette)
-                    .foregroundStyle(.white, Color.primary)
+                    .foregroundStyle(.white, Color.brandColor)
                 Text(message).font(.title2).fontWeight(.semibold)
                     .multilineTextAlignment(.center).foregroundColor(.secondary)
                     .padding()

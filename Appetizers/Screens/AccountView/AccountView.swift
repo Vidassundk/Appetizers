@@ -33,15 +33,11 @@ struct AccountView: View {
                 }
                 Section(header: Text("Request")) {
                     Toggle("Extra Napkins", isOn: $viewModel.user.extraNapkins)
-                        .toggleStyle(
-                            SwitchToggleStyle(tint: .primary))
                     Toggle(
                         "Frequent Refills", isOn: $viewModel.user.frequentRefils
                     )
-                    .toggleStyle(
-                        SwitchToggleStyle(tint: .primary))
                 }.toggleStyle(
-                    SwitchToggleStyle(tint: .primary))
+                    SwitchToggleStyle(tint: .brandColor))
             }
             .navigationTitle("🧑 Account")
         }.onAppear {
