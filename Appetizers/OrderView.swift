@@ -11,7 +11,7 @@ struct OrderView: View {
     var body: some View {
         NavigationView {
             Text("Order")
-                .navigationTitle("🛍️ Order")
+                .navigationTitle("🧾 Order")
         }
     }
 }
