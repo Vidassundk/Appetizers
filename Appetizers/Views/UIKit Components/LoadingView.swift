@@ -46,7 +46,7 @@ struct LoadingView: View {
     var body: some View {
         ZStack {
             backgroundColor
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
             ActivityIndicator()
         }
     }

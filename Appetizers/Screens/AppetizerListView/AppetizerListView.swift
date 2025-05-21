@@ -18,7 +18,7 @@ struct AppetizerListView: View {
                     AppetizerListCell(appetizer: appetizer).onTapGesture {
                         viewModel.selectedAppetizer = appetizer
                         viewModel.isShowingDetail = true
-                    }
+                    }.listRowSeparator(.hidden)
                 }.disabled(viewModel.isShowingDetail)
                     .navigationTitle("🍟 Appetizers")
             }.onAppear {

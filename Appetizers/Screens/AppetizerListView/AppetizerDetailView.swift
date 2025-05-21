@@ -23,7 +23,7 @@ struct AppetizerDetailView: View {
             VStack {
 
                 Text(appetizer.name)
-                    .font(.title2).fontWeight(.semibold)
+                    .font(.title2).fontWeight(.semibold).padding()
                 Text(appetizer.description)
                     .multilineTextAlignment(.center).font(.body).padding()
                 HStack(spacing: 40) {
@@ -39,11 +39,9 @@ struct AppetizerDetailView: View {
                 order.add(appetizer)
                 isShowingDetail = false
             } label: {
-                APButton(
-                    title:
-                        "€\(appetizer.price, specifier: "%.2f") - Add to cart")
+                Text("€\(appetizer.price, specifier: "%.2f") - Add to cart")
             }
-            .padding(.bottom, 30)
+            .standartButtonStyle().padding(.bottom, 30)
 
         }
         .frame(width: 300, height: 525).background(Color(.systemBackground))
